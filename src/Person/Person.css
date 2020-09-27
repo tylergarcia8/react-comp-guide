@@ -8,8 +8,8 @@
     background: gray;
 }
 
-/* @media (min-width: 500px) {
+@media (min-width: 500px) {
     .Person {
         width: 450px;
     }
-} */
+}

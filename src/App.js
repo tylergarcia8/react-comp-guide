@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Person from './Person/Person'
 // import styled from 'styled-components'
-import './App.css';
+import classes from './App.css';
 
 // const StyledButton = styled.button `
 //   background-color: ${props => props.alt ? 'red' : 'green'};
@@ -82,6 +82,8 @@ class App extends Component {
     //   }
     // }
     let persons = null;
+    let btnClass = [classes.Button]
+
     if(this.state.showPersons){
      persons = (
       <div>
@@ -101,29 +103,30 @@ class App extends Component {
     //   backgroundColor: 'salmon',
     //   color: 'black'
     // }
+        btnClass = classes.Red
     }
 
-    let classes = []
+    let assignedClasses = []
 
     if( this.state.persons.length <= 2) {
-      classes.push('red');
+      assignedClasses.push('red');
     }
 
     if(this.state.persons.length <= 1) {
-      classes.push('bold');
+      assignedClasses.push('bold');
     }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hello I am a React App</h1>
-        <p className={classes.join(' ')}>This is really working!</p>
-        <button
+        <p className={assignedClasses.join(' ')}>This is really working!</p>
+        <button className={btnClass}
         // alt={this.state.showPersons}
         onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
       </div>
     )
-    }
+  }
 }
 
 export default App;
